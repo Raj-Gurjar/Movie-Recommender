@@ -12,18 +12,18 @@ Pickel
 -> DataSet from Kaggle; https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata
 
 Dataset files are ;
-tmdb_5000_credits.csv
-tmdb_5000_movies.csv
+  tmdb_5000_credits.csv,
+  tmdb_5000_movies.csv
 
 -> Steps to run the Program;
- -Install all the required (mentioned above) libraries) by the command "pip install (library/package Name)" on your terminal or cmd.
+  -Install all the required (mentioned above) libraries) by the command "pip install (library/package Name)" on your terminal or cmd.
  
- -Run the 'movie_recommendation.ipynb' file on your jupyter notebook , vscode or google colab etc. platforms.
+  -Run the 'movie_recommendation.ipynb' file on your jupyter notebook , vscode or google colab etc. platforms.
  
- -It will generate 2 pickel files (movie_list.pkl, similarities.pkl) which will store our processed data.
+  -It will generate 2 pickel files (movie_list.pkl, similarities.pkl) which will store our processed data.
  
- -Use pickel file data to call in app.py(flask file).
+  -Use pickel file data to call in app.py(flask file).
  
- -Use command "python run (Movie_web.py location)" on your terminal.
+  -Use command "python run (Movie_web.py location)" on your terminal.
  
- -Enter movie name from about 4800 movies and get recommendations related to that movie and ENJOY 😊.
+  -Enter movie name from about 4800 movies and get recommendations related to that movie and ENJOY 😊.
