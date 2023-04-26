@@ -22,7 +22,7 @@ Dataset files are ;
  
   -It will generate 2 pickel files (movie_list.pkl, similarities.pkl) which will store our processed data.
  
-  -Use pickel file data to call in app.py(flask file).
+  -Use pickel file data to call apis in app.py(flask file).
  
   -Use command "python run (Movie_web.py location)" on your terminal.
  
