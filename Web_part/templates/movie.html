@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- external css -->
-    <link rel="stylesheet" href='Web_part/static/style.css' />
+    <link rel="stylesheet" href='/Web_part/static/style.css' />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 
@@ -41,7 +41,7 @@
 </style>
 
 <body>
-    <div id="preloader">
+    <!-- <div id="preloader"> -->
 
 
     </div>
@@ -51,19 +51,20 @@
 
         <div class="nav">
 
-            <a href="#Home" class="nav_link nav_active">
-                <i class="bx bx-home"></i>
-                <span class="nav_link_title">Home</span>
+            <a href="index.html" class="nav_link ">
+                <i class="bx bx-search"></i>
+                <span class="nav_link_title">search</span>
             </a>
 
-            <a href="movie.html" class="nav_link nav_active">
-                <i class="bx bx-home"></i>
-                <span class="nav_link_title">Home</span>
+            <a href="#Movie" class="nav_link nav_active">
+                <i class="bx bx-movie"></i>
+                <span class="nav_link_title">About Movie</span>
             </a>
 
-         
-
-    
+            <a href="#Recmndr" class="nav_link">
+                <i class="bx bx-photo-album"></i>
+                <span class="nav_link_title">Recommender</span>
+            </a>
 
             <a href="#About" class="nav_link">
                 <i class="bx bx-bulb"></i>
@@ -81,64 +82,87 @@
 
 
 
-    <section class="home section_padding" id="Home">
-        <!-- <div class="bg_img">
-            <img src="/Parallax/imgs/bg2.jpg" alt="">
-         </div> -->
+   
+
+    <!-- ----------------  search bar ---------------------- -->
+
+
+
+    <!-- ----------------  search bar ---------------------- -->
+
+    <!--! ------------------------------------------------------------------- -->
+
+    <section class="movie section_padding" id="Movie">
+
+
+
         <div class="container">
 
 
-
-
-
-            <div class="row">
-
-
-                <div class="home_txt">
-
-                    <h4 class="greetings">Hii</h4>
-
-                    <span class="moving_txt"></span>
-                    <h3>Welcome to the</h3>
-
-                    <div class="title" id="text">
-                        <h1>MOVIE<br>RECOMMENDER</h1>
-                    </div>
-
-
-
-
-                    <form id="search-form" action="/" method="POST">
-                        <input id="search-input" type="text" name="search" placeholder="Search a Movie...">
-
-                        <button id="search-button" type="submit"><i class="fa fa-search"></i></button>
-                    </form>
-
-
-                </div>
-
-
-
-
+            <div class="section_title">
+                <h3 class="main_title">Movie Description</h3>
+                <h5 class="sub_title">Here is the Description of your searched Movie</h5>
 
             </div>
 
 
 
+
+
+
+
+            <div class="row justify_content_cntr">
+
+
+
+                <div class="movie_card" id="glow">
+
+                    <div class="info_section">
+
+                        <div class="movie_header">
+                            <img class="poster_img" alt="movie poster" src="{{mp}}" />
+                            <h1>{{cur_m}}</h1>
+                            <h4></h4>
+                            <span class="minutes">{{rev}}</span>
+                            <p class="type">{{gen}}</p>
+                            <h4 class="mv_rating">Movie Rating : {{vote}}/10</h4>
+                        </div>
+                        <div class="movie_desc">
+                            <p class="text">
+                                {{over}}
+                            </p>
+
+
+                        </div>
+
+                        <div class="know_more">
+                            <a href="{{homep}}" class="" target="_blank"> <i class=" fa fa-link"></i> Know More</a>
+                        </div>
+                    </div>
+                    <div class="blur_back poster_back"></div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="container2">
+                <div class="arrow"></div>
+                <div class="arrow"></div>
+                <h6>Recommendations</h6>
+                <div class="arrow"></div>
+            </div>
+
         </div>
+
+
+
+
 
 
     </section>
 
-    <!-- ----------------  search bar ---------------------- -->
-
-
-
-    <!-- ----------------  search bar ---------------------- -->
-
-    <!--! ------------------------------------------------------------------- -->
-
-   
     <!--! ------------------------------------------------------------------- -->
 
     <!--! ------------------------------------------------------------------- -->
@@ -147,7 +171,86 @@
 
 
 
-   
+    <section class="recmndr section_padding" id="Recmndr">
+
+
+        <div class="container">
+
+
+
+            <div class="section_title">
+                <h3 class="main_title">Recommendations</h3>
+                <h5 class="sub_title">Here are some Recommendations related to {{cur_m}}</h5>
+
+            </div>
+
+            <!-- --------------------------- -->
+
+            <div class="row justify_content_cntr">
+
+                <div class="rec_items">
+
+                    {%for item in names%}
+                    <!-- ------ card item s ------ -->
+                    <div class="rec_card .ani1">
+                        <div class="poster">
+                            <img src="{{posters[loop.index0]}}" alt="">
+                        </div>
+
+                        <div class="details">
+                            <h3 class="rec_mv_name">{{item}}</h3>
+
+
+
+                            <div class="tags">
+                                {%for i in range(3)%}
+                                <span>{{rating[loop.index0][2][i]}}</span>
+                                {% endfor %}
+                            </div>
+                            <div class="extra_info">
+
+
+                                <h4 class="mv_year">{{rating[loop.index0][1].split("-")[0]}}</h4>
+
+                                <div class="rating">
+                                    <!-- <i class = "fa fa-star"></i> -->
+                                    <h4>Rating : {{rating[loop.index0][0]}}/10</h4>
+
+                                </div>
+
+                                <form action="{{ url_for('nest', movie=item) }}" method="POST" class="view_more">
+                                    <button type="submit">View More</button>
+                                </form>
+
+
+                            </div>
+
+
+
+
+                        </div>
+
+                    </div>
+                    {% endfor %}
+                    <!-- ------ card item e ------ -->
+
+
+
+
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+    </section>
 
     <!--! ----------------------------------------------------- -->
 

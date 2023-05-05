@@ -9,9 +9,9 @@ app = Flask(__name__, template_folder='templates',
 app.secret_key = "abc"  
 
 #movies = pickle.load(open('movie_l.pkl','rb'))
-movies = joblib.load('movie_list.pkl')
+movies = joblib.load('ML_part/movie_list.pkl')
 #movies = pickle.load(open('movie_list.pkl','rb'))
-similarity = pickle.load(open('similarity.pkl','rb'))
+similarity = pickle.load(open('ML_part/similarity.pkl','rb'))
 
 def getm(movie):
     index = movies[movies['title'] == movie].index[0]
