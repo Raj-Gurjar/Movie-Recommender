@@ -26,4 +26,6 @@ Dataset files are ;
  
   -Use command "python run (Movie_web.py location)" on your terminal.
  
-  -Enter movie name from about 4800 movies and get recommendations related to that movie and ENJOY 😊.
+  -Enter movie name from about 4800 movies and get recommendations related to that movie and ENJOY 😊....
+  
+  Thank you.
