@@ -12,7 +12,7 @@
 
 
     <!-- external css -->
-    <link rel="stylesheet" href='/Web_part/static/style.css' />
+    <link rel="stylesheet" href='/static/styles.css' />
 
 
 </head>
@@ -84,7 +84,7 @@
 
                             <div class="img_subt">
                                 <div class="subt">
-                                   
+
                                     Movie Name : {{item}}
                                 </div>
                                 Rating : {{rating[loop.index0][0]}}
@@ -94,22 +94,20 @@
                             <form action="{{ url_for('nest', movie=item) }}" method="POST">
                                 <button type="submit">Submit</button>
                             </form>
-                            
-                            
+
+
                         </div>
                     </div>
 
                 </div>
                 {% endfor %}
 
-          
+
 
     </section>
-    
+
     <!-- Add Js  Bootstrap-->
 
     <script src="/static/script.js"></script>
 
 </body>
-
-</html>

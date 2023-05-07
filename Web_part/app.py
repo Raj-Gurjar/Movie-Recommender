@@ -9,9 +9,19 @@ app = Flask(__name__, template_folder='templates',
 app.secret_key = "abc"  
 
 #movies = pickle.load(open('movie_l.pkl','rb'))
-movies = joblib.load('ML_part/movie_list.pkl')
+movies = joblib.load('movie_list.pkl')
 #movies = pickle.load(open('movie_list.pkl','rb'))
-similarity = pickle.load(open('ML_part/similarity.pkl','rb'))
+similarity = pickle.load(open('similarity.pkl','rb'))
+mv = pickle.load(open('castcrew.pkl','rb'))
+
+def getcast(movie_id):
+    movie_row = mv[mv['movie_id'] == movie_id]
+
+    # extract the cast and crew information from the row
+    cast = movie_row['cast'].values[0]
+    print(cast)
+    crew = movie_row['crew'].values[0]
+    return (cast,crew)
 
 def getm(movie):
     index = movies[movies['title'] == movie].index[0]
@@ -53,6 +63,7 @@ def recommend(movie):
     movie_i = movies.iloc[index].movie_id
     mp=fetch_poster(movie_i)
     overview,homepage,genres,rev,vote=detail(movie_i)
+    cast,crew = getcast(movie_i)
     distances = sorted(list(enumerate(similarity[index])), reverse=True, key=lambda x: x[1])
     recommended_movie_names = []
     recommended_movie_posters = []
@@ -61,7 +72,7 @@ def recommend(movie):
         movie_id = movies.iloc[i[0]].movie_id
         recommended_movie_posters.append(fetch_poster(movie_id))
         recommended_movie_names.append(movies.iloc[i[0]].title)
-    return recommended_movie_names,recommended_movie_posters,overview,homepage,genres,rev,vote,mp
+    return recommended_movie_names,recommended_movie_posters,overview,homepage,genres,rev,vote,mp,cast,crew
 
 
 @app.route('/', methods=["GET","POST"])
@@ -70,11 +81,11 @@ def index():
       try:
             movie = request.form.get("search")
             if(len(movie) < 1):
-                return render_template('home.html')
-            recommended_movie_names,recommended_movie_posters,overview,homepage,genres,rev,vote,mp = recommend(movie)
-            yearr= getm(movie)
+                return render_template('movie.html')
+            recommended_movie_names,recommended_movie_posters,overview,homepage,genres,rev,vote,mp,cast,crew = recommend(movie)
+            raj= getm(movie)
             ratings= [rating(movie) for movie in recommended_movie_names]
-            return render_template('home.html',names=recommended_movie_names,posters=recommended_movie_posters,over=overview,homep=homepage,gen=genres,cur_m=movie,rev=rev,vote=vote,rating=ratings,mp=mp,yearr=yearr)
+            return render_template('movie.html',names=recommended_movie_names,posters=recommended_movie_posters,over=overview,homep=homepage,gen=genres,cur_m=movie,rev=rev,vote=vote,rating=ratings,mp=mp,raj=raj,cast=cast,crew=crew)
 
       except:
           flash("Movie not available")  
@@ -91,24 +102,28 @@ def nest(movie):
             if movie1:
                 if(len(movie) < 1):
                    return render_template('home.html')
-                recommended_movie_names,recommended_movie_posters,overview,homepage,genres,rev,vote,mp = recommend(movie)
-                yearr= getm(movie)
+                recommended_movie_names,recommended_movie_posters,overview,homepage,genres,rev,vote,mp,cast,crew = recommend(movie)
+                raj= getm(movie)
                 ratings= [rating(movie) for movie in recommended_movie_names]
-                return render_template('home.html',names=recommended_movie_names,posters=recommended_movie_posters,over=overview,homep=homepage,gen=genres,cur_m=movie,rev=rev,vote=vote,rating=ratings,mp=mp,yearr=yearr)
+                return render_template('movie.html',names=recommended_movie_names,posters=recommended_movie_posters,over=overview,homep=homepage,gen=genres,cur_m=movie,rev=rev,vote=vote,rating=ratings,mp=mp,raj=raj,cast=cast,crew=crew)
 
             else:
                 if not movie:
                    return render_template('home.html')
-                recommended_movie_names, recommended_movie_posters, overview, homepage, genres, rev, vote, mp = recommend(movie)
-                yearr= getm(movie)
+                recommended_movie_names, recommended_movie_posters, overview, homepage, genres, rev, vote, mp,cast,crew = recommend(movie)
+                raj= getm(movie)
                 ratings = [rating(movie) for movie in recommended_movie_names]
-                return render_template('home.html', names=recommended_movie_names, posters=recommended_movie_posters,
+                return render_template('movie.html', names=recommended_movie_names, posters=recommended_movie_posters,
                                     over=overview, homep=homepage, gen=genres, cur_m=movie, rev=rev, vote=vote,
-                                    rating=ratings, mp=mp,yearr=yearr)
+                                    rating=ratings, mp=mp,raj=raj, cast=cast, crew=crew)
 
         except:
             flash("Movie not available")  
             return render_template('home.html')
+        
+@app.route('/nest', methods=["GET","POST"])
+def test():
+    return render_template('home.html')
 
 
 if __name__ == '__main__':

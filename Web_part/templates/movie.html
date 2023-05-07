@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- external css -->
-    <link rel="stylesheet" href='/Web_part/static/style.css' />
+    <link rel="stylesheet" href='/static/sstyle.css' />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 
@@ -34,29 +34,27 @@
 
 </head>
 <style>
+    
     .poster_back {
-        background: url("{{mp}}");
-        background-repeat: no-repeat;
+      background: url("{{mp}}");
+      background-repeat: no-repeat;
     }
-</style>
-
+    
+    </style>
 <body>
-    <!-- <div id="preloader"> -->
-
-
-    </div>
+    
 
 
     <navbar>
 
         <div class="nav">
 
-            <a href="index.html" class="nav_link ">
-                <i class="bx bx-search"></i>
-                <span class="nav_link_title">search</span>
+            <a href="{{ url_for('test')}}" class="nav_link nav_active">
+                <i class="bx bx-home"></i>
+                <span class="nav_link_title">Home</span>
             </a>
 
-            <a href="#Movie" class="nav_link nav_active">
+            <a href="#Movie" class="nav_link">
                 <i class="bx bx-movie"></i>
                 <span class="nav_link_title">About Movie</span>
             </a>
@@ -79,325 +77,276 @@
     </navbar>
 
 
+<!--! ------------------------------------------------------------------- -->
+
+<section class="movie section_padding" id="Movie">
+
+
+        
+    <div class="container">
+
+
+        <div class="section_title">
+            <h3 class="main_title">Movie Description</h3>
+            <h5 class="sub_title">Here is the Description of your searched Movie</h5>
+
+        </div>
 
 
 
-   
-
-    <!-- ----------------  search bar ---------------------- -->
 
 
 
-    <!-- ----------------  search bar ---------------------- -->
 
-    <!--! ------------------------------------------------------------------- -->
-
-    <section class="movie section_padding" id="Movie">
+        <div class="row justify_content_cntr">
 
 
 
-        <div class="container">
+            <div class="movie_card" id="glow">
+
+                <div class="info_section">
+
+                    <div class="movie_header">
+                        <img class="poster_img" alt="movie poster"
+                            src="{{mp}}" />
+                        <h1>{{cur_m}}</h1>
+                        <h4>Cast : {{cast}}</h4>
+                        <h4>Director : {{crew}}</h4>
+                        <span class="minutes">{{rt}}</span>
+                        <p class="type">{{gen}}</p>
+                        <h4 class="mv_rating">Movie Rating : {{vote}}/10</h4>
+                    </div>
+                    <div class="movie_desc">
+                        <p class="text">
+                            {{over}}
+                        </p>
 
 
-            <div class="section_title">
-                <h3 class="main_title">Movie Description</h3>
-                <h5 class="sub_title">Here is the Description of your searched Movie</h5>
+                    </div>
+
+                    <div class="know_more">
+                        <a href="{{homep}}" class=""> <i class=" fa fa-link"></i> {Know More}</a>
+                    </div>
+                </div>
+                <div class="blur_back poster_back"></div>
 
             </div>
 
 
+        </div>
+
+
+        <div class="container2">
+            <div class="arrow"></div>
+            <div class="arrow"></div>
+            <h6>Recommendations</h6>
+            <div class="arrow"></div>
+        </div>
+
+    </div>
 
 
 
 
 
-            <div class="row justify_content_cntr">
+
+</section>
+
+<!--! ------------------------------------------------------------------- -->
+
+<!--! ------------------------------------------------------------------- -->
 
 
 
-                <div class="movie_card" id="glow">
 
-                    <div class="info_section">
 
-                        <div class="movie_header">
-                            <img class="poster_img" alt="movie poster" src="{{mp}}" />
-                            <h1>{{cur_m}}</h1>
-                            <h4></h4>
-                            <span class="minutes">{{rev}}</span>
-                            <p class="type">{{gen}}</p>
-                            <h4 class="mv_rating">Movie Rating : {{vote}}/10</h4>
+<section class="recmndr section_padding" id="Recmndr">
+
+
+    <div class="container">
+
+
+
+        <div class="section_title">
+            <h3 class="main_title">Recommendations</h3>
+            <h5 class="sub_title">Here are some Recommendations related to {{cur_m}}</h5>
+
+        </div>
+
+        <!-- --------------------------- -->
+
+        <div class="row justify_content_cntr">
+
+            <div class="rec_items">
+
+                {%for item in names%}
+                <!-- ------ card item s ------ -->
+                <div class="rec_card .ani1">
+                    <div class="poster">
+                        <img src="{{posters[loop.index0]}}" alt="">
+                    </div>
+
+                    <div class="details">
+                        <h3 class="rec_mv_name">{{item}}</h3>
+
+
+
+                        <div class="tags">
+                            {%for i in rating[loop.index0][2]%}
+                            <span>{{i}}</span>
+                            {% endfor %}
                         </div>
-                        <div class="movie_desc">
-                            <p class="text">
-                                {{over}}
+                        <div class="extra_info">
+
+
+                            <h4 class="mv_year">{{rating[loop.index0][1].split("-")[0]}}</h4>
+
+                            <div class="rating">
+                                <!-- <i class = "fa fa-star"></i> -->
+                                <h4>Rating : {{rating[loop.index0][0]}}/10</h4>
+
+                            </div>
+
+                            <div class="btn">
+                                <a href="{{rating[loop.index0][3]}}">Know More</a>
+                            </div>
+
+                        </div>
+                        <form action="{{ url_for('nest', movie=item) }}" method="POST" >
+                            <button type="submit"> Submit</a></button>
+                        </form>
+
+
+                    </div>
+
+                </div>
+                {% endfor %}
+                <!-- ------ card item e ------ -->
+                
+
+
+
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+</section>
+
+<!--! ----------------------------------------------------- -->
+
+<section class="about section_padding" id="About">
+
+    <div class="container">
+
+        <div class="section_title">
+            <h3 class="main_title">About</h3>
+            <h5 class="sub_title">Learn about this Project</h5>
+
+        </div>
+
+
+
+        <div class="row justify_content_cntr">
+
+            <div class="about_box">
+                <p>
+                    Movie recommendation using <span>CountVectorizer</span> is a natural language processing (NLP)
+                    approach for recommending movies to users based on their textual reviews or descriptions.
+                    CountVectorizer is a method that converts text data into a numerical format that can be used by
+                    machine learning algorithms.
+                    In this approach, textual data from movie reviews are preprocessed and converted into a matrix
+                    of
+                    word counts using CountVectorizer.
+                    Then, a similarity matrix is created to compare each movie's word count matrix with all other
+                    movies. Finally,
+                    the recommendation system recommends movies to the user based on the highest similarity score
+                    with
+                    their input text.
+                    This approach is popular in movie recommendation systems due to its simplicity
+                    and effectiveness.<br>
+                </p>
+                <p>
+                    <br> The system is deployed using <span>Flask</span> framework, which enables users to interact
+                    with the system
+                    through a web interface.
+                    The user can input their preferences and receive recommendations based on their input.
+                </p>
+            </div>
+
+
+            <div class="gradient_design">
+
+                <div class="about_us_title">
+                    <h3>
+                        Meet The Creators
+                    </h3>
+                </div>
+                <!-- ----------------------------- -->
+                <div class="about_us">
+
+                    <!--? Item1 -s -->
+
+                    <!-- <div class="p1 port_item"> -->
+                    <div class="cardx card0">
+                        <div class="border">
+                            <h3>Raj Chhalotre</h3>
+                            <h4>Frontend</h4>
+                            <p>
+                                Front End | AI | ML | C++
                             </p>
-
-
-                        </div>
-
-                        <div class="know_more">
-                            <a href="{{homep}}" class="" target="_blank"> <i class=" fa fa-link"></i> Know More</a>
+                            <div class="icons">
+                                <a href="www.google.com"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                                <a href=""><i class="fa fa-github" aria-hidden="true"></i></a>
+                                <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                            </div>
                         </div>
                     </div>
-                    <div class="blur_back poster_back"></div>
+
+
+                    <!-- </div> -->
+
+                    <!-- <div class="p1 port_item"> -->
+                    <div class="cardx card1">
+                        <div class="border">
+                            <h3>Hemant Rajput</h3>
+                            <h4>Data Science</h4>
+                            <p>
+                                Front End | AI | ML | C++
+                            </p>
+                            <div class="icons">
+                                <a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                                <a href=""><i class="fa fa-github" aria-hidden="true"></i></a>
+                                <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- </div> -->
+
+
+
+
+
 
                 </div>
 
-
-            </div>
-
-
-            <div class="container2">
-                <div class="arrow"></div>
-                <div class="arrow"></div>
-                <h6>Recommendations</h6>
-                <div class="arrow"></div>
             </div>
 
         </div>
 
+         <!-- Add Js  Bootstrap-->
 
-
-
-
-
-    </section>
-
-    <!--! ------------------------------------------------------------------- -->
-
-    <!--! ------------------------------------------------------------------- -->
-
-
-
-
-
-    <section class="recmndr section_padding" id="Recmndr">
-
-
-        <div class="container">
-
-
-
-            <div class="section_title">
-                <h3 class="main_title">Recommendations</h3>
-                <h5 class="sub_title">Here are some Recommendations related to {{cur_m}}</h5>
-
-            </div>
-
-            <!-- --------------------------- -->
-
-            <div class="row justify_content_cntr">
-
-                <div class="rec_items">
-
-                    {%for item in names%}
-                    <!-- ------ card item s ------ -->
-                    <div class="rec_card .ani1">
-                        <div class="poster">
-                            <img src="{{posters[loop.index0]}}" alt="">
-                        </div>
-
-                        <div class="details">
-                            <h3 class="rec_mv_name">{{item}}</h3>
-
-
-
-                            <div class="tags">
-                                {%for i in range(3)%}
-                                <span>{{rating[loop.index0][2][i]}}</span>
-                                {% endfor %}
-                            </div>
-                            <div class="extra_info">
-
-
-                                <h4 class="mv_year">{{rating[loop.index0][1].split("-")[0]}}</h4>
-
-                                <div class="rating">
-                                    <!-- <i class = "fa fa-star"></i> -->
-                                    <h4>Rating : {{rating[loop.index0][0]}}/10</h4>
-
-                                </div>
-
-                                <form action="{{ url_for('nest', movie=item) }}" method="POST" class="view_more">
-                                    <button type="submit">View More</button>
-                                </form>
-
-
-                            </div>
-
-
-
-
-                        </div>
-
-                    </div>
-                    {% endfor %}
-                    <!-- ------ card item e ------ -->
-
-
-
-
-
-
-                </div>
-
-
-            </div>
-
-
-        </div>
-
-
-
-
-    </section>
-
-    <!--! ----------------------------------------------------- -->
-
-
-
-
-    <section class="about section_padding" id="About">
-
-        <div class="container">
-
-            <div class="section_title">
-                <h3 class="main_title">About</h3>
-                <h5 class="sub_title">Learn about this Project</h5>
-
-            </div>
-
-
-
-            <div class="row justify_content_cntr">
-
-                <div class="about_box">
-                    <p>
-                        Movie recommendation using <span>CountVectorizer</span> is a natural language processing (NLP)
-                        approach for recommending movies to users based on their textual reviews or descriptions.
-                        CountVectorizer is a method that converts text data into a numerical format that can be used by
-                        machine learning algorithms.
-                        In this approach, textual data from movie reviews are preprocessed and converted into a matrix
-                        of
-                        word counts using CountVectorizer.
-                        Then, a similarity matrix is created to compare each movie's word count matrix with all other
-                        movies. Finally,
-                        the recommendation system recommends movies to the user based on the highest similarity score
-                        with
-                        their input text.
-                        This approach is popular in movie recommendation systems due to its simplicity
-                        and effectiveness.<br>
-                    </p>
-                    <p>
-                        <br> The system is deployed using <span>Flask</span> framework, which enables users to interact
-                        with the system
-                        through a web interface.
-                        The user can input their preferences and receive recommendations based on their input.
-                    </p>
-
-                    <div class="git_link">
-                        <h4>View the Source code of this Project :
-                            <a href="https://github.com/Raj-Gurjar/New_Moive_recc" target="_blank"><i
-                                    class="fa fa-github-square"></i></a>
-                        </h4>
-                    </div>
-                </div>
-
-
-                <div class="gradient_design">
-
-                    <div class="about_us_title">
-                        <h3>
-                            Meet The Creators
-                        </h3>
-                    </div>
-                    <!-- ----------------------------- -->
-                    <div class="about_us">
-
-                        <!--? Item1 -s -->
-
-                        <!-- <div class="p1 port_item"> -->
-                        <div class="cardx card0">
-                            <div class="border">
-                                <h3>Raj Chhalotre</h3>
-                                <h4>Frontend</h4>
-                                <p>
-                                    Front End | AI | ML | C++
-                                </p>
-                                <div class="icons">
-                                    <a href="https://www.linkedin.com/in/raj-chhalotre-29jul01/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                                    <a href="https://github.com/Raj-Gurjar" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-                                    <a href="" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <!-- </div> -->
-
-                        <!-- <div class="p1 port_item"> -->
-                        <div class="cardx card1">
-                            <div class="border">
-                                <h3>Hemant Rajput</h3>
-                                <h4>Data Science</h4>
-                                <p>
-                                    Front End | AI | ML | C++
-                                </p>
-                                <div class="icons">
-                                    <a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                                    <a href=""><i class="fa fa-github" aria-hidden="true"></i></a>
-                                    <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- </div> -->
-
-
-
-
-
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-
-
-        </div>
-
-
-    </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Add Js  Bootstrap-->
-
-    <script src="/Web_part/static/script.js" async defer></script>
+         <script src="/static/scripts.js" async defer></script>
 
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
-
 </body>
-
 </html>
