@@ -1,6 +1,6 @@
 from flask import Flask, render_template,request,flash
 import pickle,requests
-# import joblib
+import joblib
 
 # Provide template folder name
 # The default folder name should be "templates" else need to mention custom folder name
@@ -9,7 +9,7 @@ app = Flask(__name__, template_folder='templates',
 app.secret_key = "abc"  
 
 # movies = pickle.load(open('movie_l.pkl','rb'))
-# movies = joblib.load('ML_part/movie_list.pkl')
+#movies = joblib.load('ML_part/movie_list.pkl')
 movies = pickle.load(open('ML_part/movie_list.pkl','rb'))
 similarity = pickle.load(open('ML_part/similarity.pkl','rb'))
 mv = pickle.load(open('ML_part/castcrew.pkl','rb'))
@@ -18,10 +18,13 @@ def getcast(movie_id):
     movie_row = mv[mv['movie_id'] == movie_id]
 
     # extract the cast and crew information from the row
-    cast = movie_row['cast'].values[0]
+    cast = (movie_row['cast'].values[0])
+    listToStr = ' '.join([str(elem) + ',' for i,elem in enumerate(cast)])
+    
     print(cast)
-    crew = movie_row['crew'].values[0]
-    return (cast,crew)
+    crew = str(movie_row['crew'].values[0])
+    crew.replace("'", "")
+    return (listToStr[:-1],crew[2:-2])
 
 def getm(movie):
     index = movies[movies['title'] == movie].index[0]
@@ -46,7 +49,7 @@ def detail(movie_id):
     data = requests.get(url)
     data = data.json()
     genres = [genre['name'] for genre in data['genres']]
-    return (data['overview'],data['homepage'],genres,data['runtime'],round(data['vote_average'],2))
+    return (data['overview'],data['homepage'],', '.join(genres),data['runtime'],round(data['vote_average'],2))
 
 
 def fetch_poster(movie_id):

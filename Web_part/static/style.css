@@ -584,6 +584,7 @@ ul {
 
 .movie_card .info_section .movie_header .genre
 {
+  margin-top: 5px;
    color: var(--white);
    font-size: 14px;
 }
@@ -621,7 +622,7 @@ ul {
 }
 
 .movie_card .info_section .know_more a {
-  color: white;
+  color: var(--white);
 }
 
 .movie_card .info_section .know_more a:hover {
