@@ -545,41 +545,49 @@ ul {
 
 .movie_card .info_section .movie_header {
   position: relative;
-  /* background-color: #03a9f4; */
+  /* background-color: #435760; */
   padding: 15px;
   height: auto;
   margin-bottom: 10px;
 }
 
 .movie_card .info_section .movie_header h1 {
-  color: #fff;
+  color:var(--white);
   font-weight: 400;
 }
 
-.movie_card .info_section .movie_header h4 {
-  color: #9ac7fa;
-  font-weight: 400;
-}
+  .movie_card .info_section .movie_header h4 {
+    color: #9ac7fa;
+    font-weight: 400;
+  }
+  .movie_card .info_section .movie_header h5{
+    color: #9ac7fa;
+    font-weight: 400;
+  }
 
 .movie_card .info_section .movie_header .minutes {
   display: inline-block;
-  font-size: 15px;
+  font-size: 13px;
   margin-top: 10px;
-  color: #fff;
+  margin-right: 10px;
+  color: var(--white);
+
   padding: 3px;
   border-radius: 5px;
-  border: 1px solid rgba(255, 255, 255, 0.13);
+  border: 1px solid rgba(205, 205, 205, 0.567);
 }
 
-.movie_card .info_section .movie_header .mv_rating {
-  font-size: 15px;
+.movie_card .info_section .movie_header .rating i{
+  font-size: 13px;
+  color: yellow;
 }
 
-.movie_card .info_section .movie_header .type {
-  display: inline-block;
-  color: #cee4fd;
-  margin-left: 10px;
+.movie_card .info_section .movie_header .genre
+{
+   color: var(--white);
+   font-size: 14px;
 }
+
 
 .movie_card .info_section .movie_header .poster_img {
   position: relative;
@@ -717,11 +725,6 @@ ul {
   z-index: 1;
   min-height: 100vh;
 
-}
-
-.recmndr .sub_title span
-{
-  color: var(--white);
 }
 
 .rec_items {

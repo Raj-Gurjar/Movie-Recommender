@@ -101,11 +101,18 @@
                         <div class="movie_header">
                             <img class="poster_img" alt="movie poster" src="{{mp}}" />
                             <h1>{{cur_m}}</h1>
-                            <h4>Cast : {{cast}}</h4>
                             <h4>Director : {{crew}}</h4>
-                            <span class="minutes">{{rt}}</span>
-                            <p class="type">{{gen}}</p>
-                            <h4 class="mv_rating">Movie Rating : {{vote}}/10</h4>
+                            <h5>Cast :{{cast}}</h5>
+
+                            <span class="minutes"><i class="fa fa-clock-o"></i> {{rt}}</span>
+
+                            <span class="rating minutes"> <i class="fa fa-star"></i> {{vote}}/10</span>
+
+                            <p class="genre"><i class="fa fa-address-book"></i>{{gen}}</p>
+
+
+
+
                         </div>
                         <div class="movie_desc">
                             <p class="text">
