@@ -1,6 +1,6 @@
 from flask import Flask, render_template,request,flash
 import pickle,requests
-import joblib
+# import joblib
 
 # Provide template folder name
 # The default folder name should be "templates" else need to mention custom folder name
@@ -8,9 +8,9 @@ app = Flask(__name__, template_folder='templates',
             static_folder='static')
 app.secret_key = "abc"  
 
-#movies = pickle.load(open('movie_l.pkl','rb'))
-movies = joblib.load('ML_part/movie_list.pkl')
-#movies = pickle.load(open('movie_list.pkl','rb'))
+# movies = pickle.load(open('movie_l.pkl','rb'))
+# movies = joblib.load('ML_part/movie_list.pkl')
+movies = pickle.load(open('ML_part/movie_list.pkl','rb'))
 similarity = pickle.load(open('ML_part/similarity.pkl','rb'))
 mv = pickle.load(open('ML_part/castcrew.pkl','rb'))
 
