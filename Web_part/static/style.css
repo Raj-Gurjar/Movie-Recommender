@@ -768,7 +768,7 @@ ul {
   bottom: -130px;
   width: 100%;
   height: 100%;
-  background: linear-gradient(0deg, #bc6a6a 50%, transparent);
+  background: linear-gradient(0deg, #000000 50%, transparent);
   transition: 0.5s;
   z-index: 1;
 }
@@ -811,7 +811,7 @@ ul {
 }
 
 .details .rec_mv_name {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   margin-bottom: 10px;
 }
