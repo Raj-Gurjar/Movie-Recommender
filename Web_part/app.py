@@ -10,9 +10,9 @@ app.secret_key = "abc"
 
 # movies = pickle.load(open('movie_l.pkl','rb'))
 #movies = joblib.load('ML_part/movie_list.pkl')
-movies = pickle.load(open('C:/Users/HP/Documents/movie_recommendor/Movie-Recommender//ML_part/movie_list.pkl','rb'))
-similarity = pickle.load(open('C:/Users/HP/Documents/movie_recommendor/Movie-Recommender/ML_part/similarity.pkl','rb'))
-mv = pickle.load(open('C:/Users/HP/Documents/movie_recommendor/Movie-Recommender/ML_part/castcrew.pkl','rb'))
+movies = pickle.load(open('ML_part/movie_list.pkl','rb'))
+similarity = pickle.load(open('ML_part/similarity.pkl','rb'))
+mv = pickle.load(open('ML_part/castcrew.pkl','rb'))
 
 def getcast(movie_id):
     movie_row = mv[mv['movie_id'] == movie_id]
