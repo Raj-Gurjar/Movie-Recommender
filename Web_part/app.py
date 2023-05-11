@@ -9,7 +9,7 @@ app = Flask(__name__, template_folder='templates',
 app.secret_key = "abc"  
 
 # movies = pickle.load(open('movie_l.pkl','rb'))
-#movies = joblib.load('ML_part/movie_list.pkl')
+# movies = joblib.load('ML_part/movie_list.pkl')
 movies = pickle.load(open('ML_part/movie_list.pkl','rb'))
 similarity = pickle.load(open('ML_part/similarity.pkl','rb'))
 mv = pickle.load(open('ML_part/castcrew.pkl','rb'))
