@@ -488,7 +488,6 @@ ul {
 }
 
 
-
 .movie .container1 {
   /* background-color: rgb(0, 234, 255); */
 }
@@ -584,7 +583,6 @@ ul {
 
 .movie_card .info_section .movie_header .genre
 {
-  margin-top: 5px;
    color: var(--white);
    font-size: 14px;
 }
@@ -622,7 +620,7 @@ ul {
 }
 
 .movie_card .info_section .know_more a {
-  color: var(--white);
+  color: white;
 }
 
 .movie_card .info_section .know_more a:hover {
@@ -728,6 +726,12 @@ ul {
 
 }
 
+.recmndr .sub_title span
+{
+  color: var(--white);
+  font-size: 18px;
+}
+
 .rec_items {
   display: flex;
   flex-wrap: wrap;
@@ -769,7 +773,7 @@ ul {
   bottom: -130px;
   width: 100%;
   height: 100%;
-  background: linear-gradient(0deg, #000000 50%, transparent);
+  background: linear-gradient(0deg, #000000c1 50%, transparent);
   transition: 0.5s;
   z-index: 1;
 }
@@ -812,7 +816,7 @@ ul {
 }
 
 .details .rec_mv_name {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   margin-bottom: 10px;
 }
@@ -831,9 +835,14 @@ ul {
 
 .details .tags {
   font-size: 10px;
+  position: absolute;
   position: relative;
-  margin-top: 5px;
-  margin-bottom: 10px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* margin: 10px; */
+  gap: 5px;
 }
 
 .details .tags span {
