@@ -10,11 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <!-- font boxicons -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 
     <!-- Add font awasome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 
     <!-- external css -->
     <link rel="stylesheet" href='/static/style.css' />
@@ -42,24 +42,23 @@
         <div class="nav">
 
             <a href="{{ url_for('test')}}" class="nav_link">
-                <i class="bx bx-search"></i>
-                <span class="nav_link_title">Search</span>
+                <i class="fa fa-home"></i>
+                <!-- <i class="fa-sharp fa-solid fa-house-person-return "></i> -->
+                <span class="nav_link_title">Home</span>
             </a>
 
             <a href="#Movie" class="nav_link nav_active">
-                <i class="bx bx-movie"></i>
+                <i class="fa fa-clapperboard"></i>
                 <span class="nav_link_title">About Movie</span>
             </a>
 
             <a href="#Recmndr" class="nav_link">
-                <i class="bx bx-photo-album"></i>
+                <!-- <i class="fa fa-magic"></i> -->
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
                 <span class="nav_link_title">Recommender</span>
             </a>
 
-            <a href="#About" class="nav_link">
-                <i class="bx bx-bulb"></i>
-                <span class="nav_link_title">About</span>
-            </a>
+          
 
 
         </div>
@@ -69,7 +68,7 @@
     </navbar>
 
 
-    <!--! ------------------------------------------------------------------- -->
+    <!--! --------------------------- Movie Desc. ---------------------------------------- -->
 
     <section class="movie section_padding" id="Movie">
 
@@ -102,14 +101,14 @@
                             <img class="poster_img" alt="movie poster" src="{{mp}}" />
                             <h1>{{cur_m}}</h1>
                             <h4>Director : {{crew}}</h4>
-                            <h5>Cast :{{cast}}</h5>
+                            <h5>Cast : {{cast}}</h5>
 
                             <span class="year minutes"><i class="fa fa-calendar"></i> {{raj[0]}}</span>
-                            <span class="minutes"><i class="fa fa-clock-o"></i> {{rev}}</span>
+                            <span class="minutes"><i class="fa fa-clock"></i> {{rev}} min</span>
 
                             <span class="rating minutes"> <i class="fa fa-star"></i> {{vote}}/10</span>
 
-                            <p class="genre"><i class="fa fa-address-book"></i> {{gen}}</p>
+                            <p class="genre"><i class="fa fa-masks-theater"></i> {{gen}}</p>
 
 
 
@@ -151,9 +150,11 @@
 
     </section>
 
-    <!--! ------------------------------------------------------------------- -->
+    <!--! --------------------------- Movie Desc.---------------------------------------- -->
 
-    <!--! ------------------------------------------------------------------- -->
+
+
+    <!--! ----------------------------- Recommender ------------------------------------- -->
 
 
 
@@ -210,7 +211,7 @@
                             </div>
 
                             <form action="{{ url_for('nest', movie=item) }}" method="POST" class="">
-                                <button type="submit" class="btn"> Submit</a></button>
+                                <button type="submit" class="btn">Know More</a></button>
                             </form>
 
 
@@ -240,117 +241,16 @@
 
     <!--! ----------------------------------------------------- -->
 
-    <section class="about section_padding" id="About">
-
-        <div class="container">
-
-            <div class="section_title">
-                <h3 class="main_title">About</h3>
-                <h5 class="sub_title">Learn about this Project</h5>
-
-            </div>
 
 
+   
+   
 
-            <div class="row justify_content_cntr">
+            <!--!------ Add Js ------>
 
-                <div class="about_box">
-                    <p>
-                        Movie recommendation using <span>CountVectorizer</span> is a natural language processing (NLP)
-                        approach for recommending movies to users based on their textual reviews or descriptions.
-                        CountVectorizer is a method that converts text data into a numerical format that can be used by
-                        machine learning algorithms.
-                        In this approach, textual data from movie reviews are preprocessed and converted into a matrix
-                        of
-                        word counts using CountVectorizer.
-                        Then, a similarity matrix is created to compare each movie's word count matrix with all other
-                        movies. Finally,
-                        the recommendation system recommends movies to the user based on the highest similarity score
-                        with
-                        their input text.
-                        This approach is popular in movie recommendation systems due to its simplicity
-                        and effectiveness.<br>
-                    </p>
-                    <p>
-                        <br> The system is deployed using <span>Flask</span> framework, which enables users to interact
-                        with the system
-                        through a web interface.
-                        The user can input their preferences and receive recommendations based on their input.
-                    </p>
-                    <div class="git_link">
-                        <h4>View the Source code of this Project :
-                            <a href="https://github.com/Raj-Gurjar/Movie-Recommender.git" target="_blank"><i
-                                    class="fa fa-github-square"></i></a>
-                        </h4>
-                    </div>
-                </div>
-
-
-
-                <div class="gradient_design">
-
-                    <div class="about_us_title">
-                        <h3>
-                            Meet The Creators
-                        </h3>
-                    </div>
-                    <!-- ----------------------------- -->
-                    <div class="about_us">
-
-                        <!--? Item1 -s -->
-
-                        <!-- <div class="p1 port_item"> -->
-                        <div class="cardx card0">
-                            <div class="border">
-                                <h3>Raj Chhalotre</h3>
-                                <h4>Frontend</h4>
-                                <p>
-                                    Front End | AI | ML | C++
-                                </p>
-                                <div class="icons">
-                                    <a href="www.google.com"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                                    <a href=""><i class="fa fa-github" aria-hidden="true"></i></a>
-                                    <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <!-- </div> -->
-
-                        <!-- <div class="p1 port_item"> -->
-                        <div class="cardx card1">
-                            <div class="border">
-                                <h3>Hemant Rajput</h3>
-                                <h4>Data Science</h4>
-                                <p>
-                                    Front End | AI | ML | C++
-                                </p>
-                                <div class="icons">
-                                    <a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                                    <a href=""><i class="fa fa-github" aria-hidden="true"></i></a>
-                                    <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- </div> -->
-
-
-
-
-
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- Add Js  Bootstrap-->
-
+            <!-- external js -->
             <script src="/static/script.js" async defer></script>
 
-            <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
 </body>
 

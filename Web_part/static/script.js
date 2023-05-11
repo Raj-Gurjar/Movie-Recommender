@@ -14,8 +14,10 @@ window.addEventListener('scroll', () => {
     });
     navLink.forEach(li => {
         li.classList.remove('nav_active');
-        document.querySelector('.nav  a[href*= ' + current + ']').classList.add('nav_active');
+     
     });
+
+    document.querySelector('.nav  a[href*= ' + current + ']').classList.add('nav_active');
 });
 
 //!---------------------------------------------------

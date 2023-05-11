@@ -9,12 +9,12 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    
-    <!-- Add font boxicons -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+ 
 
     <!-- Add font awasome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 
     <!-- Add external css -->
     <link rel="stylesheet" href='/static/style.css' />
@@ -34,16 +34,16 @@
 
     <navbar>
 
-        <div class="nav" style="margin-left: 10px;">
+        <div class="nav">
 
             <a href="#Home" class="nav_link nav_active">
-                <i class="bx bx-home"></i>
-                <span class="nav_link_title">Home</span>
+                <i class="fa fa-home"></i>
+                <span class="nav_link_title" style="font-size: 13px;">Home</span>
             </a>
 
             <a href="#About" class="nav_link">
-                <i class="bx bx-bulb"></i>
-                <span class="nav_link_title">About</span>
+                <i class="fa-sharp fa-solid fa-circle-info"></i>
+                <span class="nav_link_title" style="font-size: 13px;">About</span>
             </a>
 
 
@@ -58,7 +58,7 @@
 
 
     <section class="home section_padding" id="Home">
-     
+
         <div class="container">
 
 
@@ -70,13 +70,14 @@
                     <h4 class="greetings">Hii</h4>
 
                     <span class="moving_txt"></span>
-                     <h3>Welcome to the</h3>
+                    <h3>Welcome to the</h3>
 
                     <div class="title" id="text">
                         <h1>MOVIE<br>RECOMMENDER</h1>
                     </div>
 
 
+                    <!-- ----------------  search bar ---------------------- -->
 
 
                     <form id="search-form" action="/" method="POST">
@@ -88,6 +89,7 @@
 
                 </div>
 
+                <!-- ----------------  search bar ---------------------- -->
 
 
 
@@ -101,13 +103,12 @@
 
     </section>
 
-    <!-- ----------------  search bar ---------------------- -->
 
 
 
-    <!-- ----------------  search bar ---------------------- -->
+    <!--! ----------------  About ---------------------- -->
 
-    
+
 
 
 
@@ -151,8 +152,9 @@
                     </p>
                     <div class="git_link">
                         <h4>View the Source code of this Project :
-                            <a href="https://github.com/Raj-Gurjar/Movie-Recommender.git" target="_blank"><i
-                                    class="fa fa-github-square"></i></a>
+                            <a href="https://github.com/Raj-Gurjar/Movie-Recommender.git" target="_blank">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
                         </h4>
                     </div>
                 </div>
@@ -179,9 +181,14 @@
                                     Front End | AI | ML | C++
                                 </p>
                                 <div class="icons">
-                                    <a href="https://www.linkedin.com/in/raj-chhalotre-29jul01/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                                    <a href="https://github.com/Raj-Gurjar" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-                                    <a href="" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                    <a href="https://www.linkedin.com/in/raj-chhalotre-29jul01/" target="_blank">
+
+                                        <i class="fa fa-brands fa-linkedin"></i> </a>
+
+                                    <a href="https://github.com/Raj-Gurjar" target="_blank">
+                                        <i class="fa fa-brands fa-github" aria-hidden="true"></i></a>
+
+                                    <a href="" target="_blank"><i class="fa fa-brands fa-instagram" aria-hidden="true"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -198,9 +205,15 @@
                                     Front End | AI | ML | C++
                                 </p>
                                 <div class="icons">
-                                    <a href="https://www.linkedin.com/in/hemantsinghrajput/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                                    <a href="https://github.com/hemantsinghrajput" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-                                    <a href="" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+
+                                    <a href="https://www.linkedin.com/in/hemantsinghrajput/" target="_blank"><i
+                                            class="fa fa-brands fa-linkedin" aria-hidden="true"></i></a>
+
+                                    <a href="https://github.com/hemantsinghrajput" target="_blank"><i
+                                            class="fa fa-brands fa-github" aria-hidden="true"></i></a>
+
+                                    <a href="" target="_blank"><i class="fa fa-brands fa-instagram" aria-hidden="true"></i></a>
+
                                 </div>
                             </div>
                         </div>
@@ -222,19 +235,7 @@
 
     </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <!--! ----------------  About ---------------------- -->
 
 
 
@@ -242,10 +243,10 @@
 
 
     <!--!------ Add Js ------>
-     
+
     <!-- external js -->
     <script src="/static/script.js" async defer></script>
-    
+
     <!-- Shifting Text -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 

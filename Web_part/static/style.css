@@ -34,7 +34,6 @@ html {
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
-  font-family: 'Poppins', sans-serif;
 
 
 }
@@ -48,6 +47,7 @@ body {
   /* height: 100vh; */
 
   color: auto;
+  font-family: 'Poppins', sans-serif;
 
   overflow-x: hidden;
 
@@ -155,7 +155,7 @@ ul {
 
   display: flex;
   flex-direction: column;
-  row-gap: 2rem;
+  row-gap: 3rem;
   z-index: 100;
 
 
@@ -189,8 +189,8 @@ ul {
 }
 
 
-.nav_link .bx {
-  font-size: 1.7rem;
+.nav_link i {
+  font-size: 1.4rem;
 }
 
 .nav_link_title {
@@ -722,7 +722,8 @@ ul {
   position: relative;
   /* background-color: #c6c325; */
   z-index: 1;
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  margin-bottom: 50px;
 
 }
 
@@ -747,12 +748,12 @@ ul {
 
 .rec_card {
   position: relative;
-  width: 250px;
+  width: 230px;
   height: 280px;
   overflow: hidden;
 
   background-color: white;
-  border-radius: 20px;
+  border-radius: 10px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
 
 
@@ -812,7 +813,7 @@ ul {
 }
 
 .rec_card:hover .details {
-  bottom: 40px;
+  bottom: 10px;
 }
 
 .details .rec_mv_name {
@@ -848,12 +849,12 @@ ul {
 .details .tags span {
   padding: 2px 5px;
   color: white;
-  background-color: rgb(0, 225, 255);
+  background-color: rgba(0, 225, 255, 0.7);
   border-radius: 5px;
 }
 
 .details .tags span:not(:last-child) {
-  background-color: red;
+  background-color: rgba(255, 0, 0, 0.7);
 }
 
 .details .extra_info {
@@ -937,6 +938,7 @@ ul {
   border-radius: 10px;
 
   background: var(--box-grad);
+  box-shadow: var(--shadow-black-100);
 
 
 
@@ -1478,16 +1480,17 @@ ul {
 
 }
 
-
-
-@media (max-width: 425px) {
-
-
+@media (max-width: 460px) 
+{
   .cardx {
     flex: 0 0 80%;
     max-width: 80%;
     width: 300px;
   }
+}
+
+@media (max-width: 425px) {
+
 
   #search-form {
 
@@ -1505,7 +1508,7 @@ ul {
 
 
   .section_padding {
-    padding: 120px 10px;
+    padding: 80px 10px;
   }
 
 
