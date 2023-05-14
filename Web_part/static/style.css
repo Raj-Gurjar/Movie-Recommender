@@ -892,12 +892,12 @@ ul {
 .details .tags span {
   padding: 2px 5px;
   color: white;
-  background-color: rgb(0, 225, 255);
+  background-color: rgba(0, 225, 255, 0.856);
   border-radius: 5px;
 }
 
 .details .tags span:not(:last-child) {
-  background-color: red;
+  background-color: rgba(255, 0, 0, 0.713);
 }
 
 .details .extra_info {
