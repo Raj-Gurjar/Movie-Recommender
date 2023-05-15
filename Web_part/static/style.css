@@ -177,7 +177,7 @@ ul {
   display: flex;
   flex-direction: column;
   row-gap: 2rem;
-  z-index: 1000;
+  z-index: 100;
 
 
   /* background-color: #95a7af; */
@@ -1438,7 +1438,7 @@ ul {
   top: 0;
   height: 100%;
   width: 50%;
-  background: #2c3e50;
+  background: #415b75;
 }
 
 .arrow:before {
@@ -1583,7 +1583,7 @@ ul {
 #preloader {
   background: #000 url("imgs/pre2.gif") no-repeat center;
   /* border-radius: 10px; */
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   text-align: center;

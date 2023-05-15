@@ -1,3 +1,12 @@
+//! --------------preloader -s ---------------
+
+var loader = document.getElementById("preloader");
+
+function loading() {
+    loader.style.display = "none";
+};
+
+//! --------------preloader -e ---------------
 
 //! ----------- Current Navbar Menu -------------
 
@@ -8,16 +17,14 @@ window.addEventListener('scroll', () => {
     let current = '';
     sections.forEach(section => {
         let sectionTop = section.offsetTop;
-        if (scrollY >= sectionTop - 200) {
+        if (scrollY >= sectionTop - 20) {
             current = section.getAttribute('id');
         }
     });
     navLink.forEach(li => {
         li.classList.remove('nav_active');
-     
+        document.querySelector('.nav  a[href*= ' + current + ']').classList.add('nav_active');
     });
-
-    document.querySelector('.nav  a[href*= ' + current + ']').classList.add('nav_active');
 });
 
 //!---------------------------------------------------
@@ -68,15 +75,7 @@ document.querySelector(".greetings").innerHTML = greet;
 
 
 
-//! --------------preloader -s ---------------
 
-var loader = document.getElementById("preloader");
-
-window.addEventListener("load", function () {
-    loader.style.display = "none";
-});
-
-//! --------------preloader -e ---------------
 
 
 
