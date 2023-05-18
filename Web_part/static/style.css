@@ -410,7 +410,11 @@ ul {
 
   transition: all 0.3s ease-in-out;
 }
+#search-form:active {
 
+  transform: scale(1.1);
+
+}
 
 #search-input {
   flex: 1;
@@ -1163,10 +1167,6 @@ ul {
 }
 
 
-
-
-
-
 /* -----------------AboutUS  Cards ------------------------ */
 
 .about .git_link a i {
@@ -1189,12 +1189,6 @@ ul {
 
 
 
-
-
-
-
-
-
 /*! ------------------------About  -e------------------------ */
 
 
@@ -1206,6 +1200,7 @@ ul {
 /*! ----------------------- An1:Animations ------------------------------------------ */
 
 @keyframes gradient {
+
   0% {
     background-position: 0% 50%;
   }
@@ -1219,7 +1214,9 @@ ul {
   }
 }
 
-@keyframes fadeIn {
+@keyframes fadeIn 
+{
+
   from {
     opacity: 0;
   }
@@ -1227,10 +1224,13 @@ ul {
   to {
     opacity: 1;
   }
+
 }
 
 
-@keyframes jiggle {
+@keyframes jiggle 
+{
+  
   0% {
     border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
   }
@@ -1357,7 +1357,8 @@ ul {
 }
 
 
-@keyframes hover_anim {
+@keyframes hover_anim 
+{
   0% {
     transform: translatey(0px);
   }
@@ -1400,7 +1401,7 @@ ul {
 /*! ----------------------- An1:Animations ------------------------------------------ */
 
 
-/* TODO------------------------- Scroll down  arrow ani---------------------------------- */
+/* TODO------------------------- Scroll down  arrow ani ---------------------------------- */
 
 .container2 {
   display: flex;
@@ -1560,17 +1561,9 @@ ul {
     font-size: 2.5rem;
     /* text-transform: uppercase; */
     font-weight: 900;
-    background: linear-gradient(to right, #ffffff 10%, #256ce8 50%, #10141f 60%);
-    background-size: auto auto;
-    background-clip: border-box;
-    background-size: 200% auto;
 
 
-    background-clip: text;
-    text-fill-color: fill;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: textclip 5s linear infinite;
+
     /* display: inline-block; */
   }
 
