@@ -1,6 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,700,800");
-@import url('https://fonts.googleapis.com/css2?family=Baloo+Chettan+2&family=Calligraffitti&display=swap');
 
 
 /* ----------------#### Global Declarations ####-----------------------  */
@@ -746,7 +744,7 @@ ul {
   bottom: -130px;
   width: 100%;
   height: 100%;
-  background: linear-gradient(0deg, #000000c1 50%, transparent);
+  background: linear-gradient(0deg, #000000 20%, transparent);
   transition: 0.5s;
   z-index: 1;
 }
