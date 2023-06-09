@@ -353,11 +353,6 @@ ul {
   transition: all 0.3s ease-in-out;
 }
 
-#search-form:active {
-
-  transform: scale(1.1);
-
-}
 
 #search-input {
   flex: 1;
