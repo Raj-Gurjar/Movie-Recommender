@@ -7,7 +7,7 @@ Pandas,
 ast,
 NLTK,
 skLearn,
-Pickel,
+Pickel.
 
 ## DataSet from Kaggle; https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata
 Dataset files are ;
