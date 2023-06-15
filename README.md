@@ -2,12 +2,12 @@
 This is a Movie Recomendation Website made by using NLP(Natural Language Processing)ML alogorithm with Flask and UI with HTML,CSS,JS.
 
 ## Libraries/Packages to be installed to run ML file;
-Numpy
-Pandas
-ast
-NLTK
-skLearn
-Pickel
+Numpy,
+Pandas,
+ast,
+NLTK,
+skLearn,
+Pickel,
 
 ## DataSet from Kaggle; https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata
 Dataset files are ;
